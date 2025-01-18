@@ -1,0 +1,96 @@
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2e2e46; /* Dark background */
+  color: #585454; /* Light text */
+}
+
+h1, h3 {
+  text-align: center;
+  color: #dfc15f; /* Bright yellow for headers */
+}
+
+/* Form Styles */
+form {
+  background-color: #16213e; /* Deep blue for forms */
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(157, 127, 127, 0.3);
+  max-width: 400px;
+  color: #eaeaea;
+}
+
+form h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #dcbb4f; /* Bright yellow for subheaders */
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #394867; /* Subtle border color */
+  border-radius: 5px;
+  background-color: #0f3460; /* Dark input background */
+  color: #eaeaea;
+}
+
+form input::placeholder, form textarea::placeholder {
+  color: #b1b1b1; /* Placeholder text color */
+}
+
+form button {
+  background-color: #2bacd0; /* Vibrant red for buttons */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background-color: #836f72; /* Slightly darker red on hover */
+}
+
+/* Table Styles */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #16213e; /* Deep blue for table */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+  color: #eaeaea;
+}
+
+table th {
+  background-color: #0f3460; /* Darker blue for table headers */
+  color: #d5ab1f; /* Bright yellow for header text */
+}
+
+table tr:nth-child(even) {
+  background-color: #1a1a2e; /* Alternating row color */
+}
+
+table tr:hover {
+  background-color: #394867; /* Highlight row on hover */
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
