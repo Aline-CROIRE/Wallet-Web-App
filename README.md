@@ -20,4 +20,4 @@ The Wallet Web Application is designed to help users manage their finances by tr
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/wallet-web-application.git
+   git clone https://github.com/Aline-CROIRE/Wallet-Web-App.git
