@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/transactions", transactionsRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use('/api/dashboard', require('./routes/dashboard'));
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
