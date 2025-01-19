@@ -1,31 +1,38 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify'; // Ensure this is imported
-import jsPDF from 'jspdf';
-import 'jspdf-autotable'; // Ensure this is installed
-import { selectCategories } from '../features/categorySlice'; // Adjust the import path
-import { selectTransactions } from '../features/transactionSlice'; // Adjust the import path
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategories } from './features/categorySlice';
+import { setTransactions } from './features/transactionSlice';
 
 const Dashboard = () => {
-  const categories = useSelector(selectCategories);
-  const transactions = useSelector(selectTransactions);
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.category.categories);
+  const transactions = useSelector((state) => state.transaction.transactions);
 
-  const exportPDF = () => {
-    const doc = new jsPDF();
-    const headers = [["Header 1", "Header 2", "Header 3"]]; // Define your headers here
-    doc.autoTable({
-      head: headers,
-      body: transactions.map(trans => [trans.field1, trans.field2, trans.field3]), // Adjust based on your transaction fields
-    });
-    doc.save("transactions.pdf");
-  };
+  useEffect(() => {
+    // Fetch data from API and dispatch
+    fetch('/api/categories')
+      .then((res) => res.json())
+      .then((data) => dispatch(setCategories(data)));
+
+    fetch('/api/transactions')
+      .then((res) => res.json())
+      .then((data) => dispatch(setTransactions(data)));
+  }, [dispatch]);
 
   return (
     <div>
-      <h2>Dashboard</h2>
-      <button onClick={exportPDF}>Export PDF</button>
-      <ToastContainer />
-      {/* Render categories and transactions as needed */}
+      <h1>Categories</h1>
+      <ul>
+        {categories.map((cat) => (
+          <li key={cat.id}>{cat.name}</li>
+        ))}
+      </ul>
+      <h1>Transactions</h1>
+      <ul>
+        {transactions.map((txn) => (
+          <li key={txn.id}>{txn.description}</li>
+        ))}
+      </ul>
     </div>
   );
 };
